@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
+require('dotenv').config({ path: require('path').resolve(__dirname, '.env') });
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 app.use(express.json());
 
 // Health check route
@@ -12,8 +15,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'ResumeIQ API is running!' });
 });
 
-// Routes (we add these in Sprint 2)
-// app.use('/api/auth', require('./routes/auth'));
+app.use('/api/auth', require('./routes/auth')); 
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
