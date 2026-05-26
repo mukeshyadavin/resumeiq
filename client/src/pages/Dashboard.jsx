@@ -39,6 +39,17 @@ export default function Dashboard() {
             <div>Analyze Resume</div>
             <div className="text-purple-200 text-sm mt-1">Match against a JD</div>
           </button>
+
+          {/* History button — full width */}
+          <button
+            onClick={() => navigate('/history')}
+            className="bg-green-600 text-white p-6 rounded-xl font-semibold hover:bg-green-700 transition text-left col-span-2"
+          >
+            <div className="text-3xl mb-2">📋</div>
+            <div>View History</div>
+            <div className="text-green-200 text-sm mt-1">See all past analyses</div>
+          </button>
+
         </div>
 
         <button

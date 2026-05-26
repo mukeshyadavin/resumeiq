@@ -5,6 +5,7 @@ import Register   from './pages/Register';
 import Dashboard  from './pages/Dashboard';
 import Upload from './pages/Upload';
 import Analyze from './pages/Analyze';
+import History from './pages/History';
 
 // Protected route wrapper
 function PrivateRoute({ children }) {
@@ -29,6 +30,9 @@ function App() {
           } />
           <Route path="/analyze" element={
             <PrivateRoute><Analyze /></PrivateRoute>
+          } />
+          <Route path="/history" element={
+            <PrivateRoute><History /></PrivateRoute>
           } />
         </Routes>
       </BrowserRouter>
