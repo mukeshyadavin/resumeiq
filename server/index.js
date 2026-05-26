@@ -15,7 +15,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'ResumeIQ API is running!' });
 });
 
-app.use('/api/auth', require('./routes/auth')); 
+app.use('/api/auth',   require('./routes/auth'));
+app.use('/api/resume', require('./routes/resume'));  
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
