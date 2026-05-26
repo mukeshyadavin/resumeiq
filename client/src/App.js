@@ -3,6 +3,8 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Login      from './pages/Login';
 import Register   from './pages/Register';
 import Dashboard  from './pages/Dashboard';
+import Upload from './pages/Upload';
+import Analyze from './pages/Analyze';
 
 // Protected route wrapper
 function PrivateRoute({ children }) {
@@ -22,6 +24,12 @@ function App() {
             <PrivateRoute><Dashboard /></PrivateRoute>
           } />
           <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="/upload" element={
+              <PrivateRoute><Upload /></PrivateRoute>
+          } />
+          <Route path="/analyze" element={
+            <PrivateRoute><Analyze /></PrivateRoute>
+          } />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
